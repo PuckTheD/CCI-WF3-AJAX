@@ -18,7 +18,7 @@
                 alert(xhrTest.responseText);
             }
         };
-        xhrTest.open("GET", "test.php", true);
+        xhrTest.open("GET", "test.php?nom1=Jackie&nom2=Michel", true);
         xhrTest.send(null);
     };
 </script>

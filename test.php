@@ -1,3 +1,3 @@
 <?php
 sleep(4);
-echo "Coucou toi !";
+echo "Merci ".$_GET['nom1']." & ".$_GET['nom2']." !";
