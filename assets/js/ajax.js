@@ -1,4 +1,5 @@
 function ajax() {
+    let xhr = null;
     if (window.XMLHttpRequest){
         xhr = new XMLHttpRequest(); // si oui je crée une instance
     } else if (window.ActiveXObject) {
