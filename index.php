@@ -10,7 +10,18 @@
 </head>
 <body>
 <script>
-    console.log(ajax());
+    let xhrTest = ajax();
+    let test = function () {
+        // intercepte chacun des évènements
+        xhrTest.onreadystatechange = function () {
+            if (xhrTest.readyState == 4 && xhrTest.status == 200){
+                alert(xhrTest.responseText);
+            }
+        };
+        xhrTest.open("GET", "test.php", true);
+        xhrTest.send(null);
+    };
 </script>
+<p onclick="test()">Clique-moi !</p>
 </body>
 </html>
