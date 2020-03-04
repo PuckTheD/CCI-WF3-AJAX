@@ -1,56 +1,40 @@
-$(document).ready(function(){
-
-    $(".card-header ul li a").click(function(){
-        console.log($(this).attr("href"));
-
-        $.ajax({
-            url: $(this).attr('href'),
-            success: function(data){
-                $('.card-body').empty();
-                $('.card-body').css('color','red');
-                $('.card-body').append(data);
-            },
-            error:function(){
-
-            }
-
-        });
-
-        return false;
-
-    })
-
-    //JSON
+$(document).ready(function() {
 
     $.ajax({
-        url:"js/etudiant.json",
+
+        url:"js/country.json",
         dataType:"json",
-        success:function (data) {
-            //console.log(data);
-            $('.liste-admis').prepend("<h1>Liste des étudiants admis<//h1> <br>" );
-            $('.liste-non-admis').prepend("<h1>Liste des étudiants non admis<//h1> <br>" );
-            for (let i= 0; i < data.etudiants.length; i++){
-                //console.log(data.etudiants[i]);
+        success: function (data) {
+            for (var i = 0; i < data.length; i++) {
+                $('#ville').append("<option value="+data[i].code+">"+data[i].name+"</option>");
 
-                if (data.etudiants[i].moyenne > 9){
-                    console.log("Admis ===> " + data.etudiants[i].nom + " " + data.etudiants[i].prenom);
-                    var content = "<ul>";
-                    content += "<li>" +data.etudiants[i].prenom+ " " +data.etudiants[i].nom + "</li>";
-                    content +="</ul>"
-
-                    $('.liste-admis').append( content);
-                } else {
-                    console.log("Nom admis ===> " + data.etudiants[i].nom + " " + data.etudiants[i].prenom);
-                    var content = "<ul>";
-                    content += "<li>" +data.etudiants[i].prenom+ " " +data.etudiants[i].nom + "</li>";
-                    content +="</ul>"
-
-                    $('.liste-non-admis').append( content);
-                }
+                $('#ville').change(function () {
+                    findByCountry($('#ville').val());
+                })
             }
         },
-        error:function () {
-
+        error: function (xhr) {
+            console.log(xhr.status)
         }
     })
 });
+
+function findByCountry(country) {
+
+    $.ajax({
+        // https://datahelpdesk.worldbank.org/knowledgebase/articles/898590-country-api-queries
+
+        url:"http://api.worldbank.org/v2/country/"+ country +"?format=json",
+        dataType:"json",
+        success: function (data) {
+            //console.log(data);
+            $('.lead').html("Vous avez choisi:  " + data[1][0].name + " , sa capitale est  " +
+                data[1][0].capitalCity );
+            $('.temp').html("il se situe en " + data[1][0].region.value)
+
+        },
+        error: function (xhr) {
+            console.log(xhr.status)
+        }
+    })
+}
