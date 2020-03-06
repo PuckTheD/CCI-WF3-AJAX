@@ -9,6 +9,7 @@ class Voiture
     public string $energie;
     public string $marque;
     public string $modele;
+
     /**
      * @return string
      */
@@ -23,22 +24,6 @@ class Voiture
     public function setCouleur(string $couleur): void
     {
         $this->couleur = $couleur;
-    }
-
-    /**
-     * @return float
-     */
-    public function getVitesse(): float
-    {
-        return $this->vitesse;
-    }
-
-    /**
-     * @param float $vitesse
-     */
-    public function setVitesse(float $vitesse): void
-    {
-        $this->vitesse = $vitesse;
     }
 
     /**
@@ -58,22 +43,6 @@ class Voiture
     }
 
     /**
-     * @return int
-     */
-    public function getNbrRoues(): int
-    {
-        return $this->nbrRoues;
-    }
-
-    /**
-     * @param int $nbrRoues
-     */
-    public function setNbrRoues(int $nbrRoues): void
-    {
-        $this->nbrRoues = $nbrRoues;
-    }
-
-    /**
      * @return string
      */
     public function getEnergie(): string
@@ -87,38 +56,6 @@ class Voiture
     public function setEnergie(string $energie): void
     {
         $this->energie = $energie;
-    }
-
-    /**
-     * @return string
-     */
-    public function getMarque(): string
-    {
-        return $this->marque;
-    }
-
-    /**
-     * @param string $marque
-     */
-    public function setMarque(string $marque): void
-    {
-        $this->marque = $marque;
-    }
-
-    /**
-     * @return string
-     */
-    public function getModele(): string
-    {
-        return $this->modele;
-    }
-
-    /**
-     * @param string $modele
-     */
-    public function setModele(string $modele): void
-    {
-        $this->modele = $modele;
     }
 
     public function __construct(string $c, int $m, string $e, string $mq, string $mod)
