@@ -4,5 +4,6 @@ date_default_timezone_set('Europe/Paris');
 require_once './functions/classAutoLoader.php';
 spl_autoload_register('classAutoLoader');
 
-$voiture = new Voiture('Moutarde');
-var_dump($voiture);
+$twingo = new Voiture('Moutarde', 943, 'SP95', 'Renault', 'Twingo');
+$twingo->couleur = 'Saumon';
+var_dump($twingo);
