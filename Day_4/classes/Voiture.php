@@ -27,6 +27,22 @@ class Voiture
     }
 
     /**
+     * @return float
+     */
+    public function getVitesse(): float
+    {
+        return $this->vitesse;
+    }
+
+    /**
+     * @param float $vitesse
+     */
+    public function setVitesse(float $vitesse): void
+    {
+        $this->vitesse = $vitesse;
+    }
+
+    /**
      * @return int
      */
     public function getMasse(): int
@@ -58,9 +74,15 @@ class Voiture
         $this->energie = $energie;
     }
 
-    public function __construct(string $c, int $m, string $e, string $mq, string $mod)
+    public function Ec()
+    {
+        return 0.5 * $this->masse * pow($this->vitesse, 2);
+    }
+
+    public function __construct(string $c, float $v, int $m, string $e, string $mq, string $mod)
     {
         $this->couleur = $c;
+        $this->vitesse = $v;
         $this->masse = $m;
         $this->energie = $e;
         $this->marque = $mq;
