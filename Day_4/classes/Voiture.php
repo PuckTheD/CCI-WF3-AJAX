@@ -1,6 +1,6 @@
 <?php
 
-class Voiture extends Vehicule //Héritage
+class Voiture extends Vehicule implements Entretien //Héritage
 {
     public string $couleur;
     public int $nbrRoues = 4;
@@ -14,6 +14,11 @@ class Voiture extends Vehicule //Héritage
         $this->energie = $e;
         $this->marque = $mq;
         $this->modele = $mod;
+    }
+
+    public function test()
+    {
+       echo "Toto"; // TODO: Implement test() method.
     }
 
     /**
@@ -83,5 +88,10 @@ class Voiture extends Vehicule //Héritage
     public function __destruct()
     {
         echo '<p>Ta caisse est moche</p>';// TODO: Implement __destruct() method.
+    }
+
+    public function faireVidange()
+    {
+        echo "Je change l'huile";// TODO: Implement faireVidange() method.
     }
 }
