@@ -10,6 +10,6 @@
     <script src="assets/js/keyUpRecord.js"></script>
 </head>
 <body>
-<input type="text" id="saisie" onkeyup="record(this);"/>
+<input type="text" id="saisie" onkeyup="record(this);" value=""/>
 </body>
 </html>

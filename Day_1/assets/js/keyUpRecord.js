@@ -13,6 +13,6 @@ function  record(x) {
         }
     };
 
-    xhrTest.open("GET", "write.php");
+    xhrTest.open("POST", "write.php");
     xhrTest.send("value= " + dernierCaractere);
 }
